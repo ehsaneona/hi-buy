@@ -3,12 +3,12 @@ module.exports = {
     async headers() {
         return [
             {
-                source: '/(.*).jpg',
+                source: '/(.*).webp',
                 headers: [
                     {
                         key: 'Cache-Control',
                         value:
-                            'public, max-age=180000, s-maxage=180000, stale-while-revalidate=180000',
+                            'public, max-age=25920000, s-maxage=25920000, stale-while-revalidate=25920000',
                     },
                 ],
             },
@@ -17,14 +17,13 @@ module.exports = {
                 headers: [
                     {
                         key: 'Cache-Control',
-                        value: 'public, max-age=180000, s-maxage=180000, stale-while-revalidate=180000',
+                        value: 'public, max-age=25920000, s-maxage=25920000, stale-while-revalidate=25920000',
                     },
                 ],
             },
         ]
     },
     images: {
-        minimumCacheTTL: 600000,
         dangerouslyAllowSVG: true,
         contentDispositionType: 'attachment',
         contentSecurityPolicy:
