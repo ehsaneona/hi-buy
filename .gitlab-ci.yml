@@ -1,0 +1,81 @@
+stages:
+  - build_dev
+  - build_main
+  - deploy_dev
+  - deploy_main
+  - clear_cache
+
+.build-job: &build-job
+  image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
+  script:
+    - export IMAGE="registry.hamdocker.ir/sahmeto/front-v2"
+    - 'darkube build --push -t $IMAGE:$CI_COMMIT_SHORT_SHA -t $IMAGE:$CI_COMMIT_REF_SLUG --build-arg NEXT_PUBLIC_WEBSITE_URL=${NEXT_PUBLIC_WEBSITE_URL} --build-arg SENTRY_AUTH_TOKEN=${SENTRY_AUTH_TOKEN}'
+
+.deploy-job: &deploy-job
+  image: hamravesh.hamdocker.ir/public/darkube-cli:v1.1
+  script:
+    - 'darkube deploy --token ${DEPLOY_TOKEN}
+      --app-id ${APP_ID}  --image-tag "${CI_COMMIT_SHORT_SHA}"
+      --job-id "${CI_JOB_ID}"'
+
+darkube_build_appname_namespace_dev:
+  <<: *build-job
+  only:
+    refs:
+      - dev
+  stage: build_dev
+  environment:
+    name: dev
+    url: https://temp.sahmeto.com
+
+darkube_build_appname_namespace_main:
+  <<: *build-job
+  only:
+    refs:
+      - main
+  stage: build_main
+  environment:
+    name: production
+    url: https://www.sahmeto.com
+
+darkube_deploy_appname_namespace_dev:
+  <<: *deploy-job
+  only:
+    refs:
+      - dev
+  stage: deploy_dev
+  environment:
+    name: dev
+    url: https://temp.sahmeto.com
+
+
+darkube_deploy_appname_namespace_main:
+  <<: *deploy-job
+  only:
+    refs:
+      - main
+  stage: deploy_main
+  environment:
+    name: production
+    url: https://www.sahmeto.com
+
+clear_cache:
+  stage: clear_cache
+  image: curlimages/curl:latest
+  script:
+    - sleep 300
+    - |
+      curl --location --request POST "https://napi.arvancloud.ir/cdn/4.0/domains/sahmeto.com/caching/purge" \
+      --header "Content-Type: application/json" \
+      --header "Authorization: apikey 7bec7db0-3f4c-5e62-86ec-f2310ebe4324" \
+      --header "Accept: */*" \
+      --header "Host: napi.arvancloud.ir" \
+      --header "Connection: keep-alive" \
+      --data-raw "{\"purge\": \"all\"}"
+  only:
+    refs:
+      - main
+  environment:
+    name: main
+    url: https://www.sahmeto.com
+
