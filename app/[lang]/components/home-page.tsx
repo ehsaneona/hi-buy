@@ -17,7 +17,7 @@ export default function HomePage({ dict, lang }) {
                 <div
                     className={cn(
                         'fixed right-16 top-44 z-50 max-w-80 text-white transition-all duration-700',
-                        frameIndex >= 0 && frameIndex < 330
+                        frameIndex >= 0 && frameIndex < 165
                             ? 'translate-x-0 opacity-100'
                             : 'translate-x-full opacity-0',
                     )}
@@ -41,7 +41,7 @@ export default function HomePage({ dict, lang }) {
                 <div
                     className={cn(
                         'fixed bottom-28 right-16 z-50 max-w-80 text-black transition-all duration-700',
-                        frameIndex > 561 && frameIndex < 740
+                        frameIndex > 280 && frameIndex < 370
                             ? 'translate-x-0 opacity-100'
                             : 'translate-x-full opacity-0',
                     )}
@@ -72,13 +72,13 @@ export default function HomePage({ dict, lang }) {
                         {dict.homeSlide2Button}
                     </Link>
                 </div>
-                {frameIndex > 561 && frameIndex < 740 && (
+                {frameIndex > 280 && frameIndex < 370 && (
                     <div className="fixed bottom-28 right-16 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
                 )}
                 <div
                     className={cn(
                         'fixed bottom-28 left-16 z-50 max-w-80 text-black transition-all duration-700',
-                        frameIndex > 852 && frameIndex < 1066
+                        frameIndex > 426 && frameIndex < 533
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0',
                     )}
@@ -109,13 +109,13 @@ export default function HomePage({ dict, lang }) {
                         {dict.homeSlide3Button}
                     </Link>
                 </div>
-                {frameIndex > 852 && frameIndex < 1066 && (
+                {frameIndex > 426 && frameIndex < 533 && (
                     <div className="fixed bottom-52 left-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
                 )}
                 <div
                     className={cn(
                         'fixed bottom-24 left-16 z-50 max-w-80 text-black transition-all duration-700',
-                        frameIndex > 1180 && frameIndex < 1300
+                        frameIndex > 590 && frameIndex < 650
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0',
                     )}
@@ -146,13 +146,13 @@ export default function HomePage({ dict, lang }) {
                         {dict.homeSlide4Button}
                     </Link>
                 </div>
-                {frameIndex > 1180 && frameIndex < 1300 && (
+                {frameIndex > 590 && frameIndex < 650 && (
                     <div className="fixed bottom-52 left-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
                 )}
                 <div
                     className={cn(
                         'fixed bottom-24 right-16 z-50 max-w-80 text-black transition-all duration-700',
-                        frameIndex > 1550 && frameIndex < 1650
+                        frameIndex > 775 && frameIndex < 825
                             ? 'translate-x-0 opacity-100'
                             : 'translate-x-full opacity-0',
                     )}
@@ -183,13 +183,13 @@ export default function HomePage({ dict, lang }) {
                         {dict.homeSlide5Button}
                     </Link>
                 </div>
-                {frameIndex > 1550 && frameIndex < 1650 && (
+                {frameIndex > 775 && frameIndex < 825 && (
                     <div className="fixed bottom-52 right-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
                 )}
                 <div
                     className={cn(
                         'fixed bottom-24 left-16 z-50 max-w-80 text-white transition-all duration-700',
-                        frameIndex > 1740
+                        frameIndex > 870
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0',
                     )}
@@ -217,7 +217,7 @@ export default function HomePage({ dict, lang }) {
                 <div
                     className={cn(
                         'fixed left-[50%] top-[68%] z-10 transition-all',
-                        frameIndex > 1740 ? 'opacity-100' : 'opacity-0',
+                        frameIndex > 870 ? 'opacity-100' : 'opacity-0',
                     )}
                 >
                     <TooltipProvider>
@@ -258,7 +258,7 @@ export default function HomePage({ dict, lang }) {
                 </div>
                 <Player
                     scrollHeight={50000}
-                    numFrames={943}
+                    numFrames={900}
                     frameIndex={frameIndex}
                     setFrameIndex={setFrameIndex}
                 />
