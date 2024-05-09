@@ -41,9 +41,7 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
 
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('scrollend', () => {
-            setTimeout(() => {
-                sequenceRef.current.stop();
-            }, 10);
+            sequenceRef.current.stop();
         });
 
         return () => {

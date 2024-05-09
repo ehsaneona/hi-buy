@@ -141,7 +141,7 @@ export function Header({ lang, dict }) {
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/about') ||
                                         (frameIndex >= 0 &&
-                                            frameIndex < 330 &&
+                                            frameIndex < 165 &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -154,8 +154,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/products') ||
-                                        (frameIndex > 561 &&
-                                            frameIndex < 740 &&
+                                        (frameIndex > 280 &&
+                                            frameIndex < 370 &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -168,8 +168,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/app') ||
-                                        (frameIndex > 852 &&
-                                            frameIndex < 1066 &&
+                                        (frameIndex > 426 &&
+                                            frameIndex < 533 &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -182,8 +182,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/partners') ||
-                                        (frameIndex > 1180 &&
-                                            frameIndex < 1300 &&
+                                        (frameIndex > 590 &&
+                                            frameIndex < 650 &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -196,8 +196,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/contact') ||
-                                        (frameIndex > 1550 &&
-                                            frameIndex < 1650 &&
+                                        (frameIndex > 775 &&
+                                            frameIndex < 825 &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -207,12 +207,12 @@ export function Header({ lang, dict }) {
                         <NavigationMenuItem className="cursor-pointer block">
                             <div
                                 onClick={() => {
-                                    setFrameIndex(1750);
+                                    setFrameIndex(875);
                                 }}
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/locations') ||
-                                        (frameIndex > 1740 &&
+                                        (frameIndex > 870 &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >

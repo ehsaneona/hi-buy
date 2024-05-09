@@ -257,7 +257,7 @@ export default function HomePage({ dict, lang }) {
                     </TooltipProvider>
                 </div>
                 <Player
-                    scrollHeight={50000}
+                    scrollHeight={100000}
                     numFrames={900}
                     frameIndex={frameIndex}
                     setFrameIndex={setFrameIndex}
