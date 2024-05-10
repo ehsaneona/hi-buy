@@ -374,7 +374,7 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[66%] top-[62%]">
+                            <TooltipTrigger className="fixed lg:left-[61%] lg:top-[62%] xl:left-[62%] xl:top-[63%]">
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -394,7 +394,7 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[75%] top-[60%]">
+                            <TooltipTrigger className="fixed lg:left-[75%] lg:top-[60%] xl:left-[70%] xl:top-[63%]">
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
