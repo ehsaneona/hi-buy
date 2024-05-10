@@ -1,18 +1,30 @@
 'use client';
 
-import { useEffect } from 'react';
 import { cn, getLinksLang } from '@/libs/utils';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 import Player from '@/app/[lang]/components/player';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useGlobalContext } from '@/contexts/store';
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function HomePage({ dict, lang }) {
     const { frameIndex, setFrameIndex } = useGlobalContext();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 10000);
+    }, []);
 
     return (
         <main className="px-2.5">
+            {isLoading &&
+                <div className="fixed bg-white flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
+                    Loading...
+                </div>}
             <div className="relative overflow-hidden">
                 <div
                     className={cn(
@@ -216,27 +228,174 @@ export default function HomePage({ dict, lang }) {
                 </div>
                 <div
                     className={cn(
-                        'fixed left-[50%] top-[68%] z-10 transition-all',
+                        'fixed z-10 transition-all',
                         frameIndex > 870 ? 'opacity-100' : 'opacity-0',
                     )}
                 >
                     <TooltipProvider>
                         <Tooltip>
-                            <TooltipTrigger>
-                                <svg
-                                    width="80"
-                                    height="80"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
+                            <TooltipTrigger className="fixed left-[31%] top-[48%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
                                 >
-                                    <path
-                                        fillRule="evenodd"
-                                        clipRule="evenodd"
-                                        d="M12.398 19.804C13.881 19.0348 19 16.0163 19 11C19 7.13401 15.866 4 12 4C8.13401 4 5 7.13401 5 11C5 16.0163 10.119 19.0348 11.602 19.804C11.8548 19.9351 12.1452 19.9351 12.398 19.804ZM12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8C10.3431 8 9 9.34315 9 11C9 12.6569 10.3431 14 12 14Z"
-                                        fill="#F410B5"
-                                    />
-                                </svg>
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[33%] top-[52%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
+                                >
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[30%] top-[60%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
+                                >
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[42%] top-[49%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
+                                >
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[42%] top-[56%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
+                                >
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[49%] top-[51%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
+                                >
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[58%] top-[56%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
+                                >
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[66%] top-[62%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
+                            </TooltipTrigger>
+                            <TooltipContent className="text-center">
+                                <h1 className="text-base font-medium">
+                                    {dict.homeAddress1TooltipH1}
+                                </h1>
+                                <h3 className="mt-1 text-xs font-medium text-black/40">
+                                    {dict.homeAddress1TooltipH3}
+                                </h3>
+                                <a
+                                    href="https://www.google.com/maps"
+                                    target="_blank"
+                                    className="mt-2 inline-block rounded-lg px-16 py-2 shadow-[0px_0px_0px_1px_#E1E6EC,_0px_3px_6px_0px_rgba(0,_0,_0,_0.07),_0px_-5px_1px_-1px_rgba(0,_0,_0,_0.03)_inset]"
+                                >
+                                    {dict.homeAddress1TooltipAnchor}
+                                </a>
+                            </TooltipContent>
+                        </Tooltip>
+                        <Tooltip>
+                            <TooltipTrigger className="fixed left-[75%] top-[60%]">
+                                <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
