@@ -207,7 +207,7 @@ export function Header({ lang, dict }) {
                         <NavigationMenuItem className="cursor-pointer block">
                             <div
                                 onClick={() => {
-                                    setFrameIndex(875);
+                                    setFrameIndex(899);
                                 }}
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
