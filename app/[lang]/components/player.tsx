@@ -1,6 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FastImageSequence } from '@mediamonks/fast-image-sequence';
 
+// Debounce function to delay the execution of a function
+const debounce = (func, wait) => {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(...args), wait);
+    };
+};
+
 const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
     const containerRef = useRef(null);
     const sequenceRef = useRef(null);
@@ -15,10 +24,12 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
             numberOfCachedImages: 943,
             useWorkerForImage: false,
         });
-    }, []);
+    }, [numFrames]);
+
     useEffect(() => {
         sequenceRef.current.frame = frameIndex;
     }, [frameIndex]);
+
     useEffect(() => {
         const intervalId = setInterval(() => {
             setFrameIndex(sequenceRef.current.lastFrameDrawn);
@@ -27,30 +38,35 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
         return () => {
             clearInterval(intervalId);
         };
-    }, []);
+    }, [setFrameIndex]);
+
     useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY;
-            if (currentScrollY > prevScrollY) {
+        const handleWheel = (event) => {
+            const deltaY = event.deltaY;
+            if (deltaY > 0) {
                 sequenceRef.current.play(30);
-            } else if (currentScrollY < prevScrollY) {
+            } else if (deltaY < 0) {
                 sequenceRef.current.play(-30);
             }
-            setPrevScrollY(currentScrollY);
+            console.log('wheel');
         };
 
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('scrollend', () => {
+        const handleScrollEnd = debounce(() => {
+            console.log('scrollEnd');
             sequenceRef.current.stop();
-        });
+        }, 600); // Adjust the delay (100ms) as needed
+
+        window.addEventListener('wheel', handleWheel);
+        window.addEventListener('wheel', handleScrollEnd);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('wheel', handleScrollEnd);
         };
-    }, [prevScrollY]);
+    }, []);
 
     return (
-        <div style={{ height: scrollHeight }}>
+        <div>
             <div className="fixed rounded-3xl overflow-hidden w-[calc(100vw-25px)] h-[calc(100vh-100px)]"
                  ref={containerRef} />
         </div>
