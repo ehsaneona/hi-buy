@@ -1402,10 +1402,10 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@mediamonks/fast-image-sequence@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/@mediamonks/fast-image-sequence/-/fast-image-sequence-0.4.4.tgz#5410d746ac4de000ce74335b50fa8d005d0b6f98"
-  integrity sha512-IJVWXdVFipLJEVtQEVGR++rPWChCNg3tWugC/EqH7SVGbVL+Ata1WCIifOjeVQ/xUzwp9M0y7WO+EyP/oLqV3Q==
+"@mediamonks/fast-image-sequence@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@mediamonks/fast-image-sequence/-/fast-image-sequence-0.6.2.tgz#805b5c96328df082237f4c5dc7cd4ed28b0500dd"
+  integrity sha512-az7fKo12B1D929JAxIb+8DHMrrzigPaHX+TBcilQACNrsi1Yff0Li4df34828gv5pgE4+5TWzZDofdroTUfbyg==
 
 "@next/bundle-analyzer@^14.1.0":
   version "14.1.0"
