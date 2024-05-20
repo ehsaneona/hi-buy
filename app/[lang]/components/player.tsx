@@ -18,11 +18,13 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
     useEffect(() => {
         sequenceRef.current = new FastImageSequence(containerRef.current, {
             frames: numFrames,
-            imageURLCallback: (i) => `/video/Comp 1_${('' + (i)).padStart(5, '0')}.webp`,
+            // imageURLCallback: (i) => `/video/Comp 1_${('' + (i)).padStart(5, '0')}.webp`,
+            tarURL: '/video/video.tar',
+            tarImageURLCallback: (i) => `Comp 1_${('' + (i)).padStart(5, '0')}.webp`,
             wrap: false,
             showDebugInfo: true,
-            numberOfCachedImages: 943,
-            useWorkerForImage: false,
+            useWorkerForTar: false,
+            preloadAllTarImages: false,
         });
     }, [numFrames]);
 
@@ -48,13 +50,11 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
             } else if (deltaY < 0) {
                 sequenceRef.current.play(-30);
             }
-            console.log('wheel');
         };
 
         const handleScrollEnd = debounce(() => {
-            console.log('scrollEnd');
             sequenceRef.current.stop();
-        }, 600); // Adjust the delay (100ms) as needed
+        }, 100);
 
         window.addEventListener('wheel', handleWheel);
         window.addEventListener('wheel', handleScrollEnd);

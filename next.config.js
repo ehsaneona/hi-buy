@@ -3,6 +3,16 @@ module.exports = {
     async headers() {
         return [
             {
+                source: '/(.*).tar',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value:
+                            'public, max-age=25920000, s-maxage=25920000, stale-while-revalidate=25920000',
+                    },
+                ],
+            },
+            {
                 source: '/(.*).webp',
                 headers: [
                     {
