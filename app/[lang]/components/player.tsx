@@ -50,7 +50,7 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
 
         const handleScrollEnd = debounce(() => {
             sequenceRef.current.stop();
-        }, 600);
+        }, 1500);
 
         window.addEventListener('wheel', handleWheel);
         window.addEventListener('wheel', handleScrollEnd);
