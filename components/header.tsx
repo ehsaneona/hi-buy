@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { InstagramIcon, LinkedinIcon, MenuIcon, TwitterIcon } from 'lucide-react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Icons } from '@/components/ui/icons';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useGlobalContext } from '@/contexts/store';
 
 const ListItem = React.forwardRef<
@@ -46,6 +46,7 @@ ListItem.displayName = 'ListItem';
 export function Header({ lang, dict }) {
     const path = usePathname();
     const { frameIndex, setFrameIndex } = useGlobalContext();
+    const router = useRouter();
 
     return (
         <header
@@ -207,6 +208,7 @@ export function Header({ lang, dict }) {
                         <NavigationMenuItem className="cursor-pointer block">
                             <div
                                 onClick={() => {
+                                    router.push(`/${getLinksLang(lang)}`);
                                     setFrameIndex(899);
                                 }}
                                 className={cn({

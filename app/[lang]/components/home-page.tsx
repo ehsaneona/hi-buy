@@ -7,7 +7,9 @@ import Player from '@/app/[lang]/components/player';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useGlobalContext } from '@/contexts/store';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Icons } from '@/components/ui/icons';
+import Spinner from '@/components/spinner';
 
 export default function HomePage({ dict, lang }) {
     const { frameIndex, setFrameIndex } = useGlobalContext();
@@ -16,14 +18,18 @@ export default function HomePage({ dict, lang }) {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
-        }, 10000);
+        }, 15000);
     }, []);
 
     return (
         <main className="px-2.5">
             {isLoading &&
                 <div className="fixed bg-white flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
-                    Loading...
+                    <div className="flex flex-col items-center justify-center">
+                        <Icons.logo className="h-7 w-24 cursor-pointer" />
+                        <img src="/loading.gif" />
+                        <Spinner width={30} height={30} />
+                    </div>
                 </div>}
             <div className="relative overflow-hidden">
                 <div
