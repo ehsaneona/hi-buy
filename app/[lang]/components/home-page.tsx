@@ -27,7 +27,7 @@ export default function HomePage({ dict, lang }) {
                 <div className="fixed bg-white flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
                     <div className="flex flex-col items-center justify-center">
                         <Icons.logo className="h-7 w-24 cursor-pointer" />
-                        <img src="/loading.gif" />
+                        <img src="/loading.gif" height={360} className="h-[360px]" />
                         <Spinner width={30} height={30} />
                     </div>
                 </div>}
