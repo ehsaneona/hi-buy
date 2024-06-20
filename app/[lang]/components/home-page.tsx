@@ -24,7 +24,8 @@ export default function HomePage({ dict, lang }) {
     return (
         <main className="px-2.5">
             {isLoading &&
-                <div className="fixed bg-[#f8fdfc] flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
+                <div
+                    className="fixed bg-[#f8fdfc] flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
                     <div className="flex flex-col items-center justify-center relative">
                         <Icons.logo className="h-7 w-24 cursor-pointer" />
                         <video className="h-[360px] object-cover" src="/loading.mp4" muted autoPlay loop></video>
@@ -234,13 +235,13 @@ export default function HomePage({ dict, lang }) {
                 </div>
                 <div
                     className={cn(
-                        'fixed z-10 transition-all',
-                        frameIndex > 870 ? 'opacity-100' : 'opacity-0',
+                        'fixed z-10',
                     )}
                 >
                     <TooltipProvider>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[31%] top-[48%]">
+                            <TooltipTrigger
+                                className={cn('fixed left-[31%] top-[48%] transition duration-[600ms]', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-5 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -260,7 +261,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[33%] top-[52%]">
+                            <TooltipTrigger
+                                className={cn('fixed left-[33%] top-[52%] transition duration-[250ms]', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-5 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -280,7 +282,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[30%] top-[60%]">
+                            <TooltipTrigger
+                                className={cn('fixed left-[30%] top-[60%] transition duration-300', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -300,7 +303,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[42%] top-[49%]">
+                            <TooltipTrigger
+                                className={cn('fixed left-[42%] top-[49%] transition duration-500', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -320,7 +324,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[42%] top-[56%]">
+                            <TooltipTrigger
+                                className={cn('fixed left-[42%] top-[56%] transition duration-700', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -340,7 +345,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[49%] top-[51%]">
+                            <TooltipTrigger
+                                className={cn('fixed left-[49%] top-[51%] transition duration-300', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-9 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -360,7 +366,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed left-[58%] top-[56%]">
+                            <TooltipTrigger
+                                className={cn('fixed left-[58%] top-[56%] transition duration-200', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -380,7 +387,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed lg:left-[61%] lg:top-[62%] xl:left-[62%] xl:top-[63%]">
+                            <TooltipTrigger
+                                className={cn('fixed lg:left-[61%] lg:top-[62%] xl:left-[62%] xl:top-[63%] transition duration-150', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
@@ -400,7 +408,8 @@ export default function HomePage({ dict, lang }) {
                             </TooltipContent>
                         </Tooltip>
                         <Tooltip>
-                            <TooltipTrigger className="fixed lg:left-[75%] lg:top-[60%] xl:left-[70%] xl:top-[63%]">
+                            <TooltipTrigger
+                                className={cn('fixed lg:left-[75%] lg:top-[60%] xl:left-[70%] xl:top-[63%] transition duration-100', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-7 opacity-0')}>
                                 <Image src="/pin.png" alt="" width={50} height={266} />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
