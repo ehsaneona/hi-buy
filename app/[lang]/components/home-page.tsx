@@ -23,7 +23,7 @@ export default function HomePage({ dict, lang }) {
 
     return (
         <main className="px-2.5">
-            {isLoading &&
+            {false &&
                 <div className="fixed bg-[#f8fdfc] flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
                     <div className="flex flex-col items-center justify-center relative">
                         <Icons.logo className="h-7 w-24 cursor-pointer" />

@@ -1,35 +1,43 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FastImageSequence } from '@mediamonks/fast-image-sequence';
 
-// Debounce function to delay the execution of a function
-const debounce = (func, wait) => {
-    let timeout;
-    return (...args) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func(...args), wait);
-    };
-};
-
 const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
     const containerRef = useRef(null);
-    const sequenceRef = useRef(null);
-    const [prevScrollY, setPrevScrollY] = useState(0);
+    const sequenceRef = useRef<FastImageSequence>(null);
 
     useEffect(() => {
         sequenceRef.current = new FastImageSequence(containerRef.current, {
             frames: numFrames,
-            imageURLCallback: (i) => `/video/Comp 1_${('' + (i)).padStart(5, '0')}.webp`,
+            src: {
+                imageURL: (i) => `/video/Comp 1_${('' + (i)).padStart(5, '0')}.webp`,
+                maxCachedImages: numFrames,
+            },
             showDebugInfo: true,
-            maxCachedImages: numFrames,
         });
+
+        return () => {
+            sequenceRef.current.destruct();
+        };
     }, [numFrames]);
 
     useEffect(() => {
         sequenceRef.current.frame = frameIndex;
+        console.log(frameIndex);
+
+        if (frameIndex >= 325 && frameIndex <= 350) {
+            sequenceRef.current.stop();
+        } else if (frameIndex >= 434 && frameIndex <= 464) {
+            sequenceRef.current.stop();
+        } else if (frameIndex >= 588 && frameIndex <= 605) {
+            sequenceRef.current.stop();
+        } else if (frameIndex >= 767 && frameIndex <= 797) {
+            sequenceRef.current.stop();
+        }
     }, [frameIndex]);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
+            // @ts-ignore
             setFrameIndex(sequenceRef.current.lastFrameDrawn);
         }, 1000);
 
@@ -48,16 +56,10 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
             }
         };
 
-        const handleScrollEnd = debounce(() => {
-            sequenceRef.current.stop();
-        }, 1500);
-
         window.addEventListener('wheel', handleWheel);
-        window.addEventListener('wheel', handleScrollEnd);
 
         return () => {
             window.removeEventListener('wheel', handleWheel);
-            window.removeEventListener('wheel', handleScrollEnd);
         };
     }, []);
 
