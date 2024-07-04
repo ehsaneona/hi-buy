@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FastImageSequence } from '@mediamonks/fast-image-sequence';
+import { useGlobalContext } from '@/contexts/store';
 
-const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
+const Player = ({ scrollHeight, numFrames }) => {
     const containerRef = useRef(null);
     const sequenceRef = useRef<FastImageSequence>(null);
+    const { frameIndex, setFrameIndex, manuallyFrameIndex, setManuallyFrameIndex } = useGlobalContext();
 
     useEffect(() => {
         sequenceRef.current = new FastImageSequence(containerRef.current, {
             frames: numFrames,
             src: {
                 imageURL: (i) => `/video/Comp 1_${('' + (i)).padStart(5, '0')}.webp`,
+                useWorker: false,
                 maxCachedImages: numFrames,
             },
             showDebugInfo: true,
@@ -19,27 +22,26 @@ const Player = ({ scrollHeight, numFrames, frameIndex, setFrameIndex }) => {
             sequenceRef.current.destruct();
         };
     }, [numFrames]);
-
     useEffect(() => {
-        sequenceRef.current.frame = frameIndex;
-        console.log(frameIndex);
-
-        if (frameIndex >= 325 && frameIndex <= 350) {
+        if (frameIndex === 335) {
             sequenceRef.current.stop();
-        } else if (frameIndex >= 434 && frameIndex <= 464) {
+        } else if (frameIndex === 444) {
             sequenceRef.current.stop();
-        } else if (frameIndex >= 588 && frameIndex <= 605) {
+        } else if (frameIndex === 598) {
             sequenceRef.current.stop();
-        } else if (frameIndex >= 767 && frameIndex <= 797) {
+        } else if (frameIndex === 777) {
             sequenceRef.current.stop();
         }
     }, [frameIndex]);
+    useEffect(() => {
+        sequenceRef.current.frame = manuallyFrameIndex;
+    }, [manuallyFrameIndex]);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
             // @ts-ignore
             setFrameIndex(sequenceRef.current.lastFrameDrawn);
-        }, 1000);
+        }, 0);
 
         return () => {
             clearInterval(intervalId);

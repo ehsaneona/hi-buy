@@ -31,7 +31,7 @@ export default function AboutPage({ lang, dict }) {
                             <div className="mb-4 w-fit rounded-full bg-gray px-6 py-1.5 text-sm">
                                 {dict.aboutSlide1Badge}
                             </div>
-                            <h1 className="mx-auto max-w-md text-[44px] font-semibold leading-normal">
+                            <h1 className="mx-auto max-w-md text-[2.75rem] font-semibold leading-normal">
                                 {dict.aboutSlide1H1}{' '}
                                 <span className="text-secondary">
                                     {dict.aboutSlide1H1S2}

@@ -27,7 +27,7 @@ export default function HomePage({ dict, lang }) {
                 <div
                     className="fixed bg-[#f8fdfc] flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
                     <div className="flex flex-col items-center justify-center relative">
-                        <Icons.logo className="h-7 w-24 cursor-pointer" />
+                        <Icons.logo className="h-7 w-24" />
                         <video className="h-[360px] object-cover" src="/loading.mp4" muted autoPlay loop></video>
                         <Spinner width={30} height={30} />
                     </div>
@@ -433,8 +433,6 @@ export default function HomePage({ dict, lang }) {
                 <Player
                     scrollHeight={100000}
                     numFrames={900}
-                    frameIndex={frameIndex}
-                    setFrameIndex={setFrameIndex}
                 />
             </div>
         </main>

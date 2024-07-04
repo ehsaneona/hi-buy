@@ -45,18 +45,18 @@ ListItem.displayName = 'ListItem';
 
 export function Header({ lang, dict }) {
     const path = usePathname();
-    const { frameIndex, setFrameIndex } = useGlobalContext();
+    const { frameIndex, setFrameIndex, setManuallyFrameIndex } = useGlobalContext();
     const router = useRouter();
 
     return (
         <header
-            className="sticky top-0 z-[100] flex h-16 items-center justify-between bg-white px-6 text-sm md:h-[92px] md:px-14">
+            className="sticky top-0 z-[100] flex h-16 items-center justify-between bg-white px-6 text-sm md:h-[92px] md:px-14 gap-8">
             <div className="flex items-center gap-3 md:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
                         <MenuIcon className="md:hidden" strokeWidth={1.2} />
                     </SheetTrigger>
-                    <SheetContent side={isRtl(lang) ? 'right' : 'left'}>
+                    <SheetContent className="z-[110]" side={isRtl(lang) ? 'right' : 'left'}>
                         <div className="flex h-full flex-col justify-between pt-10">
                             <div>
                                 <div className="mt-14 flex flex-col items-start gap-8 text-xl font-black">
@@ -93,7 +93,7 @@ export function Header({ lang, dict }) {
                                     <div
                                         className="flex items-center justify-center gap-3 cursor-pointer"
                                         onClick={() => {
-                                            setFrameIndex(1750);
+                                            setManuallyFrameIndex(1750);
                                         }}
                                     >
                                         {dict.headerLinks6}
@@ -125,7 +125,7 @@ export function Header({ lang, dict }) {
             </div>
             <div className="flex w-full items-center justify-between gap-5">
                 <Link href={`${getLinksLang(lang)}/`} onClick={() => {
-                    setFrameIndex(0);
+                    setManuallyFrameIndex(0);
                 }}>
                     <Icons.logo className="h-7 w-24 cursor-pointer" />
                 </Link>
@@ -209,7 +209,7 @@ export function Header({ lang, dict }) {
                             <div
                                 onClick={() => {
                                     router.push(`/${getLinksLang(lang)}`);
-                                    setFrameIndex(899);
+                                    setManuallyFrameIndex(899);
                                 }}
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
