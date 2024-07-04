@@ -52,7 +52,7 @@ export default function HomePage({ dict, lang }) {
                             : 'translate-x-full opacity-0'
                     )}
                 >
-                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[42px]">
                         {dict.homeSlide1H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -70,7 +70,7 @@ export default function HomePage({ dict, lang }) {
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:right-16',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:right-16 lg:left-[unset]',
                         frameIndex > 280 && frameIndex < 370
                             ? 'translate-x-0 opacity-100'
                             : 'translate-x-full opacity-0'
@@ -88,7 +88,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide2Badge}
                     </div>
-                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[42px]">
                         {dict.homeSlide2H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -102,11 +102,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 280 && frameIndex < 370 && (
-                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:right-16" />
+                    <div className="fixed bottom-20 lg:left-[unset] left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:right-16" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:left-16',
+                        'fixed bottom-20 left-8 lg:left-[unset] z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:left-16',
                         frameIndex > 426 && frameIndex < 533
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0'
@@ -124,7 +124,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide3Badge}
                     </div>
-                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[42px]">
                         {dict.homeSlide3H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -138,11 +138,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 426 && frameIndex < 533 && (
-                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:left-16" />
+                    <div className="fixed bottom-20 lg:left-[unset] left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:left-16" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:left-16',
+                        'fixed bottom-20 left-8 lg:left-[unset] z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:left-16',
                         frameIndex > 590 && frameIndex < 650
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0'
@@ -160,7 +160,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide4Badge}
                     </div>
-                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[42px]">
                         {dict.homeSlide4H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -174,11 +174,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 590 && frameIndex < 650 && (
-                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-24 lg:left-16" />
+                    <div className="fixed bottom-20 lg:left-[unset] left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-24 lg:left-16" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:right-16',
+                        'fixed bottom-20 lg:left-[unset] left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:right-16',
                         frameIndex > 775 && frameIndex < 825
                             ? 'translate-x-0 opacity-100'
                             : 'translate-x-full opacity-0'
@@ -196,7 +196,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide5Badge}
                     </div>
-                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[42px]">
                         {dict.homeSlide5H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -210,11 +210,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 775 && frameIndex < 825 && (
-                    <div className="fixed bottom-20 left-8 lg:bottom-52 lg:right-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
+                    <div className="fixed lg:left-[unset] bottom-20 left-8 lg:bottom-52 lg:right-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 z-50 max-w-80 text-white transition-all duration-700 lg:bottom-24 lg:left-16',
+                        'fixed bottom-20 lg:left-[unset] left-8 z-50 max-w-80 text-white transition-all duration-700 lg:bottom-24 lg:left-16',
                         frameIndex > 870
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0'
@@ -232,7 +232,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide6Badge}
                     </div>
-                    <h1 className="text-3xl font-semibold leading-normal text-white lg:text-[44px]">
+                    <h1 className="text-3xl font-semibold leading-normal text-white lg:text-[42px]">
                         {dict.homeSlide6H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal text-white">
