@@ -51,6 +51,29 @@ const Player = ({ scrollHeight, numFrames }) => {
     }, [setFrameIndex]);
 
     useEffect(() => {
+        let startY = 0;
+        let isStartYSet = false;
+        const handleTouchMove = (event) => {
+            if (!isStartYSet) {
+                startY = event.touches[0].clientY;
+                isStartYSet = true;
+            }
+
+            const currentY = event.touches[0].clientY;
+            const deltaY = startY - currentY;
+
+            if (Math.abs(deltaY) > 30) { // A threshold to prevent accidental swipes
+                if (deltaY > 0) {
+                    sequenceRef.current.play(30); // Swiping up
+                } else {
+                    sequenceRef.current.play(-30); // Swiping down
+                }
+                isStartYSet = false; // Reset after a swipe is detected
+            }
+        };
+        const handleTouchEnd = () => {
+            isStartYSet = false;
+        };
         const handleWheel = (event) => {
             const deltaY = event.deltaY;
             if (deltaY > 0) {
@@ -61,16 +84,21 @@ const Player = ({ scrollHeight, numFrames }) => {
         };
 
         window.addEventListener('wheel', handleWheel);
+        window.addEventListener('touchmove', handleTouchMove);
+        window.addEventListener('touchend', handleTouchEnd);
 
         return () => {
             window.removeEventListener('wheel', handleWheel);
+            window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
         };
     }, []);
 
     return (
         <div>
-            <div className="fixed rounded-3xl overflow-hidden w-[calc(100vw-25px)] h-[calc(100vh-100px)]"
-                 ref={containerRef} />
+            <div
+                className="fixed rounded-3xl overflow-hidden w-[calc(100dvw-20px)] lg:w-[calc(100dvw-25px)] h-[calc(100vh-74px)] lg:h-[calc(100dvh-100px)]"
+                ref={containerRef} />
         </div>
     );
 };

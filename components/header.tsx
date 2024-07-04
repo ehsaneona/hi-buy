@@ -55,11 +55,11 @@ export function Header({ lang, dict }) {
     const router = useRouter();
 
     return (
-        <header className="sticky top-0 z-[100] flex h-16 items-center justify-between gap-8 bg-white px-6 text-sm md:h-[92px] md:px-14">
-            <div className="flex items-center gap-3 md:hidden">
+        <header className="sticky top-0 z-50 flex h-16 items-center justify-between gap-8 bg-white px-6 text-sm lg:h-[92px] lg:px-14">
+            <div className="flex items-center gap-3 lg:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
-                        <MenuIcon className="md:hidden" strokeWidth={1.2} />
+                        <MenuIcon className="lg:hidden" strokeWidth={1.2} />
                     </SheetTrigger>
                     <SheetContent
                         className="z-[110]"
@@ -141,7 +141,7 @@ export function Header({ lang, dict }) {
                     <Icons.logo className="h-7 w-24 cursor-pointer" />
                 </Link>
                 <NavigationMenu
-                    className="hidden text-black/40 md:block"
+                    className="hidden text-black/40 lg:block"
                     dir={getDirection(lang)}
                 >
                     <NavigationMenuList className="w-full gap-7 space-x-0">
@@ -241,7 +241,7 @@ export function Header({ lang, dict }) {
                     >
                         {lang === 'ar' ? 'EN' : 'العربیه'}
                     </Link>
-                    <button className="rounded-full border border-black/10 px-10 py-3 text-sm font-bold">
+                    <button className="rounded-full border border-black/10 px-10 py-3 text-sm font-bold hidden lg:block">
                         {dict.careers}
                     </button>
                 </div>
