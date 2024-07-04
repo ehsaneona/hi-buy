@@ -236,6 +236,7 @@ export default function HomePage({ dict, lang }) {
                 <div
                     className={cn(
                         'fixed z-10',
+                        frameIndex > 850 ? '' : 'hidden'
                     )}
                 >
                     <TooltipProvider>

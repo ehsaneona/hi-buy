@@ -24,7 +24,7 @@ const GlobalContext = createContext<ContextProps>({
 
 export const GlobalContextProvider = ({ children }) => {
     const [frameIndex, setFrameIndex] = useState(0);
-    const [manuallyFrameIndex, setManuallyFrameIndex] = useState(0);
+    const [manuallyFrameIndex, setManuallyFrameIndex] = useState(null);
 
     return (
         <GlobalContext.Provider

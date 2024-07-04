@@ -34,7 +34,9 @@ const Player = ({ scrollHeight, numFrames }) => {
         }
     }, [frameIndex]);
     useEffect(() => {
-        sequenceRef.current.frame = manuallyFrameIndex;
+        if (manuallyFrameIndex !== null) sequenceRef.current.frame = manuallyFrameIndex;
+        setManuallyFrameIndex(null);
+        sequenceRef.current.stop();
     }, [manuallyFrameIndex]);
 
     useEffect(() => {
