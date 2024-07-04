@@ -4,7 +4,12 @@ import { cn, getLinksLang } from '@/libs/utils';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 import Player from '@/app/[lang]/components/player';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '@/components/ui/tooltip';
 import { useGlobalContext } from '@/contexts/store';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -23,30 +28,33 @@ export default function HomePage({ dict, lang }) {
 
     return (
         <main className="px-2.5">
-            {isLoading &&
-                <div
-                    className="fixed bg-[#f8fdfc] flex justify-center items-center top-0 left-0 right-0 bottom-0 z-[999]">
-                    <div className="flex flex-col items-center justify-center relative">
+            {isLoading && (
+                <div className="fixed bottom-0 left-0 right-0 top-0 z-[999] flex items-center justify-center bg-[#f8fdfc]">
+                    <div className="relative flex flex-col items-center justify-center">
                         <Icons.logo className="h-7 w-24" />
-                        <video className="h-[360px] object-cover" src="/loading.mp4" muted autoPlay loop></video>
+                        <video
+                            className="h-[360px] object-cover"
+                            src="/loading.mp4"
+                            muted
+                            autoPlay
+                            loop
+                        ></video>
                         <Spinner width={30} height={30} />
                     </div>
-                </div>}
+                </div>
+            )}
             <div className="relative overflow-hidden">
                 <div
                     className={cn(
-                        'fixed right-16 top-44 z-50 max-w-80 text-white transition-all duration-700',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-white transition-all duration-700 lg:left-[unset] lg:right-16 lg:top-44',
                         frameIndex >= 0 && frameIndex < 165
                             ? 'translate-x-0 opacity-100'
-                            : 'translate-x-full opacity-0',
+                            : 'translate-x-full opacity-0'
                     )}
                 >
-                    <h1 className="text-[44px] font-semibold leading-normal">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
                         {dict.homeSlide1H1}
                     </h1>
-                    <p className="mt-8 text-xl font-medium">
-                        {dict.homeSlide1Paragraph}
-                    </p>
                     <p className="mt-4 text-sm font-normal">
                         {dict.homeSlide1Paragraph2}
                     </p>
@@ -57,16 +65,18 @@ export default function HomePage({ dict, lang }) {
                         {dict.homeSlide1Button}
                     </Link>
                 </div>
+                {frameIndex >= 0 && frameIndex < 165 && (
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-black opacity-50 blur-[110px] lg:left-[unset] lg:right-16 lg:top-44" />
+                )}
                 <div
                     className={cn(
-                        'fixed bottom-28 right-16 z-50 max-w-80 text-black transition-all duration-700',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:right-16',
                         frameIndex > 280 && frameIndex < 370
                             ? 'translate-x-0 opacity-100'
-                            : 'translate-x-full opacity-0',
+                            : 'translate-x-full opacity-0'
                     )}
                 >
-                    <div
-                        className="flex w-fit items-center gap-2.5 rounded-full bg-white px-3 py-1.5 text-sm text-primary">
+                    <div className="flex w-fit items-center gap-1.5 rounded-full bg-white px-2 py-1 text-xs text-primary lg:gap-2.5 lg:px-3 lg:py-1.5 lg:text-sm">
                         <svg
                             width="4"
                             height="5"
@@ -78,7 +88,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide2Badge}
                     </div>
-                    <h1 className="text-[42px] font-semibold leading-normal">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
                         {dict.homeSlide2H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -92,18 +102,17 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 280 && frameIndex < 370 && (
-                    <div className="fixed bottom-28 right-16 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:right-16" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-28 left-16 z-50 max-w-80 text-black transition-all duration-700',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:left-16',
                         frameIndex > 426 && frameIndex < 533
                             ? 'translate-x-0 opacity-100'
-                            : '-translate-x-full opacity-0',
+                            : '-translate-x-full opacity-0'
                     )}
                 >
-                    <div
-                        className="flex w-fit items-center gap-2.5 rounded-full bg-white px-3 py-1.5 text-sm text-primary">
+                    <div className="flex w-fit items-center gap-1.5 rounded-full bg-white px-2 py-1 text-xs text-primary lg:gap-2.5 lg:px-3 lg:py-1.5 lg:text-sm">
                         <svg
                             width="4"
                             height="5"
@@ -115,7 +124,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide3Badge}
                     </div>
-                    <h1 className="text-[42px] font-semibold leading-normal">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
                         {dict.homeSlide3H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -129,18 +138,17 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 426 && frameIndex < 533 && (
-                    <div className="fixed bottom-52 left-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:left-16" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-24 left-16 z-50 max-w-80 text-black transition-all duration-700',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:left-16',
                         frameIndex > 590 && frameIndex < 650
                             ? 'translate-x-0 opacity-100'
-                            : '-translate-x-full opacity-0',
+                            : '-translate-x-full opacity-0'
                     )}
                 >
-                    <div
-                        className="flex w-fit items-center gap-2.5 rounded-full bg-white px-3 py-1.5 text-sm text-primary">
+                    <div className="flex w-fit items-center gap-1.5 rounded-full bg-white px-2 py-1 text-xs text-primary lg:gap-2.5 lg:px-3 lg:py-1.5 lg:text-sm">
                         <svg
                             width="4"
                             height="5"
@@ -152,7 +160,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide4Badge}
                     </div>
-                    <h1 className="text-[42px] font-semibold leading-normal">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
                         {dict.homeSlide4H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -166,18 +174,17 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 590 && frameIndex < 650 && (
-                    <div className="fixed bottom-52 left-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-24 lg:left-16" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-24 right-16 z-50 max-w-80 text-black transition-all duration-700',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:right-16',
                         frameIndex > 775 && frameIndex < 825
                             ? 'translate-x-0 opacity-100'
-                            : 'translate-x-full opacity-0',
+                            : 'translate-x-full opacity-0'
                     )}
                 >
-                    <div
-                        className="flex w-fit items-center gap-2.5 rounded-full bg-white px-3 py-1.5 text-sm text-primary">
+                    <div className="flex w-fit items-center gap-1.5 rounded-full bg-white px-2 py-1 text-xs text-primary lg:gap-2.5 lg:px-3 lg:py-1.5 lg:text-sm">
                         <svg
                             width="4"
                             height="5"
@@ -189,7 +196,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide5Badge}
                     </div>
-                    <h1 className="text-[42px] font-semibold leading-normal">
+                    <h1 className="text-3xl font-semibold leading-normal lg:text-[44px]">
                         {dict.homeSlide5H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal">
@@ -203,18 +210,17 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 775 && frameIndex < 825 && (
-                    <div className="fixed bottom-52 right-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
+                    <div className="fixed bottom-20 left-8 lg:bottom-52 lg:right-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-24 left-16 z-50 max-w-80 text-white transition-all duration-700',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-white transition-all duration-700 lg:bottom-24 lg:left-16',
                         frameIndex > 870
                             ? 'translate-x-0 opacity-100'
-                            : '-translate-x-full opacity-0',
+                            : '-translate-x-full opacity-0'
                     )}
                 >
-                    <div
-                        className="flex w-fit items-center gap-2.5 rounded-full bg-white px-3 py-1.5 text-sm text-primary">
+                    <div className="flex w-fit items-center gap-1.5 rounded-full bg-white px-2 py-1 text-xs text-primary lg:gap-2.5 lg:px-3 lg:py-1.5 lg:text-sm">
                         <svg
                             width="4"
                             height="5"
@@ -226,7 +232,7 @@ export default function HomePage({ dict, lang }) {
                         </svg>
                         {dict.homeSlide6Badge}
                     </div>
-                    <h1 className="text-[42px] font-semibold leading-normal text-white">
+                    <h1 className="text-3xl font-semibold leading-normal text-white lg:text-[44px]">
                         {dict.homeSlide6H1}
                     </h1>
                     <p className="mt-4 text-sm font-normal text-white">
@@ -242,8 +248,19 @@ export default function HomePage({ dict, lang }) {
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed left-[31%] top-[48%] transition duration-[600ms]', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-5 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'duration-[600ms] fixed left-[31%] top-[48%] transition',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-5 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -263,8 +280,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed left-[33%] top-[52%] transition duration-[250ms]', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-5 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'duration-[250ms] fixed left-[33%] top-[52%] transition',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-5 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -284,8 +312,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed left-[30%] top-[60%] transition duration-300', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'fixed left-[30%] top-[60%] transition duration-300',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-6 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -305,8 +344,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed left-[42%] top-[49%] transition duration-500', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'fixed left-[42%] top-[49%] transition duration-500',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-4 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -326,8 +376,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed left-[42%] top-[56%] transition duration-700', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'fixed left-[42%] top-[56%] transition duration-700',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-8 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -347,8 +408,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed left-[49%] top-[51%] transition duration-300', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-9 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'fixed left-[49%] top-[51%] transition duration-300',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-9 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -368,8 +440,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed left-[58%] top-[56%] transition duration-200', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'fixed left-[58%] top-[56%] transition duration-200',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-6 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -389,8 +472,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed lg:left-[61%] lg:top-[62%] xl:left-[62%] xl:top-[63%] transition duration-150', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-2 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'fixed transition duration-150 lg:left-[61%] lg:top-[62%] xl:left-[62%] xl:top-[63%]',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-2 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -410,8 +504,19 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                         <Tooltip>
                             <TooltipTrigger
-                                className={cn('fixed lg:left-[75%] lg:top-[60%] xl:left-[70%] xl:top-[63%] transition duration-100', frameIndex > 870 ? 'translate-y-0 opacity-100' : '-translate-y-7 opacity-0')}>
-                                <Image src="/pin.png" alt="" width={50} height={266} />
+                                className={cn(
+                                    'fixed transition duration-100 lg:left-[75%] lg:top-[60%] xl:left-[70%] xl:top-[63%]',
+                                    frameIndex > 870
+                                        ? 'translate-y-0 opacity-100'
+                                        : '-translate-y-7 opacity-0'
+                                )}
+                            >
+                                <Image
+                                    src="/pin.png"
+                                    alt=""
+                                    width={50}
+                                    height={266}
+                                />
                             </TooltipTrigger>
                             <TooltipContent className="text-center">
                                 <h1 className="text-base font-medium">
@@ -431,10 +536,7 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
-                <Player
-                    scrollHeight={100000}
-                    numFrames={900}
-                />
+                <Player numFrames={900} />
             </div>
         </main>
     );

@@ -2,20 +2,25 @@ import React, { useEffect, useRef, useState } from 'react';
 import { FastImageSequence } from '@mediamonks/fast-image-sequence';
 import { useGlobalContext } from '@/contexts/store';
 
-const Player = ({ scrollHeight, numFrames }) => {
+const Player = ({ numFrames }) => {
     const containerRef = useRef(null);
     const sequenceRef = useRef<FastImageSequence>(null);
-    const { frameIndex, setFrameIndex, manuallyFrameIndex, setManuallyFrameIndex } = useGlobalContext();
+    const {
+        frameIndex,
+        setFrameIndex,
+        manuallyFrameIndex,
+        setManuallyFrameIndex,
+    } = useGlobalContext();
 
     useEffect(() => {
         sequenceRef.current = new FastImageSequence(containerRef.current, {
             frames: numFrames,
             src: {
-                imageURL: (i) => `/video/Comp 1_${('' + (i)).padStart(5, '0')}.webp`,
+                imageURL: (i) =>
+                    `/video/Comp 1_${('' + i).padStart(5, '0')}.webp`,
                 useWorker: false,
                 maxCachedImages: numFrames,
             },
-            showDebugInfo: true,
         });
 
         return () => {
@@ -34,7 +39,8 @@ const Player = ({ scrollHeight, numFrames }) => {
         }
     }, [frameIndex]);
     useEffect(() => {
-        if (manuallyFrameIndex !== null) sequenceRef.current.frame = manuallyFrameIndex;
+        if (manuallyFrameIndex !== null)
+            sequenceRef.current.frame = manuallyFrameIndex;
         setManuallyFrameIndex(null);
         sequenceRef.current.stop();
     }, [manuallyFrameIndex]);
@@ -62,7 +68,8 @@ const Player = ({ scrollHeight, numFrames }) => {
             const currentY = event.touches[0].clientY;
             const deltaY = startY - currentY;
 
-            if (Math.abs(deltaY) > 30) { // A threshold to prevent accidental swipes
+            if (Math.abs(deltaY) > 30) {
+                // A threshold to prevent accidental swipes
                 if (deltaY > 0) {
                     sequenceRef.current.play(30); // Swiping up
                 } else {
@@ -97,8 +104,9 @@ const Player = ({ scrollHeight, numFrames }) => {
     return (
         <div>
             <div
-                className="fixed rounded-3xl overflow-hidden w-[calc(100dvw-20px)] lg:w-[calc(100dvw-25px)] h-[calc(100vh-74px)] lg:h-[calc(100dvh-100px)]"
-                ref={containerRef} />
+                className="fixed h-[calc(100vh-74px)] w-[calc(100dvw-20px)] overflow-hidden rounded-3xl lg:h-[calc(100dvh-100px)] lg:w-[calc(100dvw-25px)]"
+                ref={containerRef}
+            />
         </div>
     );
 };
