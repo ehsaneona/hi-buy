@@ -15,7 +15,7 @@ const Player = ({ scrollHeight, numFrames }) => {
                 useWorker: false,
                 maxCachedImages: numFrames,
             },
-            showDebugInfo: process.env.NODE_ENV !== 'production',
+            showDebugInfo: true,
         });
 
         return () => {
