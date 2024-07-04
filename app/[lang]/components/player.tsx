@@ -104,7 +104,7 @@ const Player = ({ numFrames }) => {
     return (
         <div>
             <div
-                className="fixed h-[calc(100vh-74px)] w-[calc(100dvw-20px)] overflow-hidden rounded-3xl lg:h-[calc(100dvh-100px)] lg:w-[calc(100dvw-20px)]"
+                className="fixed h-[calc(100dvh-74px)] w-[calc(100dvw-20px)] overflow-hidden rounded-3xl lg:h-[calc(100dvh-100px)] lg:w-[calc(100dvw-20px)]"
                 ref={containerRef}
             />
         </div>
