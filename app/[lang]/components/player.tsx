@@ -21,6 +21,7 @@ const Player = ({ numFrames }) => {
                 useWorker: false,
                 maxCachedImages: numFrames,
             },
+            showDebugInfo: true,
         });
 
         return () => {
