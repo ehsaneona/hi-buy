@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FastImageSequence } from '@mediamonks/fast-image-sequence';
 import { useGlobalContext } from '@/contexts/store';
+import { isMobile } from 'react-device-detect';
 
 const Player = ({ numFrames }) => {
     const containerRef = useRef(null);
@@ -17,7 +18,7 @@ const Player = ({ numFrames }) => {
             frames: numFrames,
             src: {
                 imageURL: (i) =>
-                    `/video/${('' + i).padStart(5, '0')}.webp`,
+                    `/video/${isMobile ? 'mobile' : 'desktop'}/${isMobile ? 'mobile' : 'desktop'}${('' + i).padStart(5, '0')}.webp`,
                 useWorker: false,
                 maxCachedImages: numFrames,
             },
@@ -35,7 +36,7 @@ const Player = ({ numFrames }) => {
             sequenceRef.current.stop();
         } else if (frameIndex === 598) {
             sequenceRef.current.stop();
-        } else if (frameIndex === 777) {
+        } else if (frameIndex === 760) {
             sequenceRef.current.stop();
         }
     }, [frameIndex]);

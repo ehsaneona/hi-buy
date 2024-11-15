@@ -536,7 +536,7 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
-                <Player numFrames={900} />
+                <Player numFrames={761} />
             </div>
         </main>
     );
