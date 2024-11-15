@@ -153,8 +153,7 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/about') ||
-                                        (frameIndex >= 0 &&
-                                            frameIndex < StopFrames[0] &&
+                                        (frameIndex === 0 &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -167,8 +166,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/products') ||
-                                        (frameIndex > StopFrames[1] - 100 &&
-                                            frameIndex < StopFrames[1] &&
+                                        (frameIndex > StopFrames[0] - 100 &&
+                                            frameIndex <= StopFrames[0] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -181,8 +180,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/app') ||
-                                        (frameIndex > StopFrames[2] - 100 &&
-                                            frameIndex < StopFrames[2] &&
+                                        (frameIndex > StopFrames[1] - 100 &&
+                                            frameIndex <= StopFrames[1] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -195,8 +194,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/partners') ||
-                                        (frameIndex > StopFrames[3] - 100 &&
-                                            frameIndex < StopFrames[3] &&
+                                        (frameIndex > StopFrames[2] - 100 &&
+                                            frameIndex <= StopFrames[2] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -209,8 +208,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/contact') ||
-                                        (frameIndex > StopFrames[4] - 100 &&
-                                            frameIndex < StopFrames[4] &&
+                                        (frameIndex > StopFrames[3] - 100 &&
+                                            frameIndex <= StopFrames[3] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
