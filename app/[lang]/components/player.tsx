@@ -17,7 +17,7 @@ const Player = ({ numFrames }) => {
             frames: numFrames,
             src: {
                 imageURL: (i) =>
-                    `/video/Comp 1_${('' + i).padStart(5, '0')}.webp`,
+                    `/video/${('' + i).padStart(5, '0')}.webp`,
                 useWorker: false,
                 maxCachedImages: numFrames,
             },
