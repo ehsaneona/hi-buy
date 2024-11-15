@@ -3,7 +3,7 @@ import { FastImageSequence } from '@mediamonks/fast-image-sequence';
 import { useGlobalContext } from '@/contexts/store';
 import { isMobile } from 'react-device-detect';
 
-const Player = ({ numFrames }) => {
+const Player = ({ numFrames, onLoad }) => {
     const containerRef = useRef(null);
     const sequenceRef = useRef<FastImageSequence>(null);
     const {
@@ -24,6 +24,8 @@ const Player = ({ numFrames }) => {
             },
             showDebugInfo: true,
         });
+
+        sequenceRef.current.onLoadProgress(onLoad);
 
         return () => {
             sequenceRef.current.destruct();

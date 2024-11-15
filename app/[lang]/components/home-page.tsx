@@ -20,12 +20,6 @@ export default function HomePage({ dict, lang }) {
     const { frameIndex, setFrameIndex } = useGlobalContext();
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 15000);
-    }, []);
-
     return (
         <main className="px-2.5">
             {isLoading && (
@@ -70,7 +64,7 @@ export default function HomePage({ dict, lang }) {
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:right-16 lg:left-[unset]',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:left-[unset] lg:right-16',
                         frameIndex > 280 && frameIndex < 370
                             ? 'translate-x-0 opacity-100'
                             : 'translate-x-full opacity-0'
@@ -102,11 +96,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 280 && frameIndex < 370 && (
-                    <div className="fixed bottom-20 lg:left-[unset] left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:right-16" />
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:left-[unset] lg:right-16" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 lg:left-[unset] z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:left-16',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-28 lg:left-16 lg:left-[unset]',
                         frameIndex > 426 && frameIndex < 533
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0'
@@ -138,11 +132,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 426 && frameIndex < 533 && (
-                    <div className="fixed bottom-20 lg:left-[unset] left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:left-16" />
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-28 lg:left-16 lg:left-[unset]" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 left-8 lg:left-[unset] z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:left-16',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:left-16 lg:left-[unset]',
                         frameIndex > 590 && frameIndex < 650
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0'
@@ -174,11 +168,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 590 && frameIndex < 650 && (
-                    <div className="fixed bottom-20 lg:left-[unset] left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-24 lg:left-16" />
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-24 lg:left-16 lg:left-[unset]" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 lg:left-[unset] left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:right-16',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-black transition-all duration-700 lg:bottom-24 lg:left-[unset] lg:right-16',
                         frameIndex > 775 && frameIndex < 825
                             ? 'translate-x-0 opacity-100'
                             : 'translate-x-full opacity-0'
@@ -210,11 +204,11 @@ export default function HomePage({ dict, lang }) {
                     </Link>
                 </div>
                 {frameIndex > 775 && frameIndex < 825 && (
-                    <div className="fixed lg:left-[unset] bottom-20 left-8 lg:bottom-52 lg:right-40 z-10 h-48 w-64 bg-white opacity-50 blur-[110px]" />
+                    <div className="fixed bottom-20 left-8 z-10 h-48 w-64 bg-white opacity-50 blur-[110px] lg:bottom-52 lg:left-[unset] lg:right-40" />
                 )}
                 <div
                     className={cn(
-                        'fixed bottom-20 lg:left-[unset] left-8 z-50 max-w-80 text-white transition-all duration-700 lg:bottom-24 lg:left-16',
+                        'fixed bottom-20 left-8 z-50 max-w-80 text-white transition-all duration-700 lg:bottom-24 lg:left-16 lg:left-[unset]',
                         frameIndex > 870
                             ? 'translate-x-0 opacity-100'
                             : '-translate-x-full opacity-0'
@@ -536,7 +530,12 @@ export default function HomePage({ dict, lang }) {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
-                <Player numFrames={761} />
+                <Player
+                    numFrames={761}
+                    onLoad={(load) => {
+                        if (load > 0.3) setIsLoading(false);
+                    }}
+                />
             </div>
         </main>
     );
