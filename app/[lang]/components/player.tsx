@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { FastImageSequence } from '@mediamonks/fast-image-sequence';
 import { useGlobalContext } from '@/contexts/store';
 import { isMobile } from 'react-device-detect';
+import { StopFrames } from '@/app/[lang]/components/constant/StopFrames';
 
 const Player = ({ numFrames, onLoad }) => {
     const containerRef = useRef(null);
@@ -13,7 +14,7 @@ const Player = ({ numFrames, onLoad }) => {
         setManuallyFrameIndex,
     } = useGlobalContext();
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         sequenceRef.current = new FastImageSequence(containerRef.current, {
             frames: numFrames,
             src: {
@@ -24,7 +25,6 @@ const Player = ({ numFrames, onLoad }) => {
             },
             showDebugInfo: true,
         });
-
         sequenceRef.current.onLoadProgress(onLoad);
 
         return () => {
@@ -32,15 +32,7 @@ const Player = ({ numFrames, onLoad }) => {
         };
     }, [numFrames]);
     useEffect(() => {
-        if (frameIndex === 335) {
-            sequenceRef.current.stop();
-        } else if (frameIndex === 444) {
-            sequenceRef.current.stop();
-        } else if (frameIndex === 598) {
-            sequenceRef.current.stop();
-        } else if (frameIndex === 760) {
-            sequenceRef.current.stop();
-        }
+        if (StopFrames.includes(frameIndex)) sequenceRef.current.stop();
     }, [frameIndex]);
     useEffect(() => {
         if (manuallyFrameIndex !== null)

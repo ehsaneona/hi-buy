@@ -196,7 +196,9 @@ export default function PartnersPage({ dict, lang }) {
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit">{dict.next}</Button>
+                        <Button type="submit" className="border-secondary">
+                            {dict.next}
+                        </Button>
                     </form>
                 </Form>
             </div>
@@ -317,7 +319,9 @@ export default function PartnersPage({ dict, lang }) {
                             <Button onClick={() => setStep(1)}>
                                 {dict.back}
                             </Button>
-                            <Button type="submit">{dict.next}</Button>
+                            <Button type="submit" className="border-secondary">
+                                {dict.next}
+                            </Button>
                         </div>
                     </form>
                 </Form>
@@ -550,7 +554,12 @@ export default function PartnersPage({ dict, lang }) {
                 </div>
                 <div className="mt-6 flex items-center justify-between">
                     <Button onClick={() => setStep(2)}>{dict.back}</Button>
-                    <Button onClick={() => setStep(4)}>{dict.next}</Button>
+                    <Button
+                        onClick={() => setStep(4)}
+                        className="border-secondary"
+                    >
+                        {dict.next}
+                    </Button>
                 </div>
             </div>
             <div
@@ -558,11 +567,31 @@ export default function PartnersPage({ dict, lang }) {
                     hidden: step !== 4,
                 })}
             >
-                <div className="flex items-center justify-center gap-0.5 mb-2">
-                    <div className={cn("h-1 rounded-full", step !== 1 ? 'w-3 bg-gray' : 'w-16 bg-black')}></div>
-                    <div className={cn("h-1 rounded-full", step !== 2 ? 'w-3 bg-gray' : 'w-16 bg-black')}></div>
-                    <div className={cn("h-1 rounded-full", step !== 3 ? 'w-3 bg-gray' : 'w-16 bg-black')}></div>
-                    <div className={cn("h-1 rounded-full", step !== 4 ? 'w-3 bg-gray' : 'w-16 bg-black')}></div>
+                <div className="mb-2 flex items-center justify-center gap-0.5">
+                    <div
+                        className={cn(
+                            'h-1 rounded-full',
+                            step !== 1 ? 'w-3 bg-gray' : 'w-16 bg-black'
+                        )}
+                    ></div>
+                    <div
+                        className={cn(
+                            'h-1 rounded-full',
+                            step !== 2 ? 'w-3 bg-gray' : 'w-16 bg-black'
+                        )}
+                    ></div>
+                    <div
+                        className={cn(
+                            'h-1 rounded-full',
+                            step !== 3 ? 'w-3 bg-gray' : 'w-16 bg-black'
+                        )}
+                    ></div>
+                    <div
+                        className={cn(
+                            'h-1 rounded-full',
+                            step !== 4 ? 'w-3 bg-gray' : 'w-16 bg-black'
+                        )}
+                    ></div>
                 </div>
                 <div className="mx-auto mb-10 flex max-w-3xl flex-col items-center justify-center text-center">
                     <h1 className="text-[44px] font-semibold leading-normal">
@@ -597,8 +626,7 @@ export default function PartnersPage({ dict, lang }) {
                                         strokeLinejoin="round"
                                         d="M13.838 19.5L19 24.662 24.16 19.5"
                                     ></path>
-                                    <path
-                                        d="M4.354 24.377l1.821 4.56c.792 1.963 3.167 3.578 5.289 3.578h15.073c2.122 0 4.497-1.615 5.288-3.578l1.821-4.56"></path>
+                                    <path d="M4.354 24.377l1.821 4.56c.792 1.963 3.167 3.578 5.289 3.578h15.073c2.122 0 4.497-1.615 5.288-3.578l1.821-4.56"></path>
                                 </g>
                                 <defs>
                                     <clipPath id="clip0_222_530">
@@ -645,8 +673,7 @@ export default function PartnersPage({ dict, lang }) {
                                         strokeLinejoin="round"
                                         d="M13.838 19.5L19 24.662 24.16 19.5"
                                     ></path>
-                                    <path
-                                        d="M4.354 24.377l1.821 4.56c.792 1.963 3.167 3.578 5.289 3.578h15.073c2.122 0 4.497-1.615 5.288-3.578l1.821-4.56"></path>
+                                    <path d="M4.354 24.377l1.821 4.56c.792 1.963 3.167 3.578 5.289 3.578h15.073c2.122 0 4.497-1.615 5.288-3.578l1.821-4.56"></path>
                                 </g>
                                 <defs>
                                     <clipPath id="clip0_222_530">
@@ -725,6 +752,7 @@ export default function PartnersPage({ dict, lang }) {
                 <div className="mt-6 flex items-center justify-between">
                     <Button onClick={() => setStep(3)}>{dict.back}</Button>
                     <Button
+                        className="border-secondary"
                         onClick={() => {
                             toast.success(dict.submitted);
                             setTimeout(() => {

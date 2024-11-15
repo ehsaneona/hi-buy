@@ -44,7 +44,7 @@ export default function ProductsPage({ dict, lang }) {
                                 {dict.productsSlide1Button}
                             </Button>
                         </div>
-                        <div className="mx-auto mt-[2vh] flex w-full max-w-6xl items-center justify-between">
+                        <div className="mx-auto mt-[10vh] flex w-full max-w-6xl items-center justify-between">
                             <div className="rounded-3xl border border-black/5 p-3 shadow-[0px_49px_78.9px_-29px_rgba(0,_0,_0,_0.07)]">
                                 <div className="flex items-center gap-2.5 font-medium">
                                     <img
@@ -67,7 +67,7 @@ export default function ProductsPage({ dict, lang }) {
                                     alt=""
                                 />
                             </div>
-                            <div className="relative top-[15vh] rounded-3xl border border-black/5 p-3 shadow-[0px_49px_78.9px_-29px_rgba(0,_0,_0,_0.07)]">
+                            <div className="rounded-3xl border border-black/5 p-3 shadow-[0px_49px_78.9px_-29px_rgba(0,_0,_0,_0.07)]">
                                 <div className="flex items-center gap-2.5 font-medium">
                                     <img
                                         className="h-7 w-7"
@@ -87,7 +87,7 @@ export default function ProductsPage({ dict, lang }) {
                                     alt=""
                                 />
                             </div>
-                            <div className="relative top-[10vh] rounded-3xl border border-black/5 p-3 shadow-[0px_49px_78.9px_-29px_rgba(0,_0,_0,_0.07)]">
+                            <div className="rounded-3xl border border-black/5 p-3 shadow-[0px_49px_78.9px_-29px_rgba(0,_0,_0,_0.07)]">
                                 <div className="flex items-center gap-2.5 font-medium">
                                     <img
                                         className="h-7 w-7"

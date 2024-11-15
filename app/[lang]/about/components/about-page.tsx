@@ -49,7 +49,7 @@ export default function AboutPage({ lang, dict }) {
                                 </button>
                             </div>
                         </div>
-                        <div className="my-10 flex gap-8">
+                        <div className="my-10 flex gap-20">
                             <div className="flex flex-col gap-2 rounded-lg border border-black/5 bg-white p-5 shadow-[0px_49px_78.9px_-22px_rgba(45,_213,_112,_0.11)]">
                                 <div className="flex items-center gap-2 text-blue-grey">
                                     <svg
@@ -82,7 +82,7 @@ export default function AboutPage({ lang, dict }) {
                                     {dict.aboutSlide1Pros1Description}
                                 </div>
                             </div>
-                            <div className="relative -top-5 ltr:left-20 rtl:right-20 flex flex-col gap-2 rounded-lg border border-black/5 bg-white p-5 shadow-[0px_49px_78.9px_-22px_rgba(248,_81,_44,_0.11)]">
+                            <div className="flex flex-col gap-2 rounded-lg border border-black/5 bg-white p-5 shadow-[0px_49px_78.9px_-22px_rgba(248,_81,_44,_0.11)]">
                                 <div className="flex items-center gap-2 text-blue-grey">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@ export default function AboutPage({ lang, dict }) {
                             </div>
                         </div>
                         <div className="flex gap-8">
-                            <div className="relative -top-5 flex flex-col gap-2 rounded-lg border border-black/5 bg-white p-5 shadow-[0px_31px_78.9px_-22px_rgba(44,_153,_248,_0.17)]">
+                            <div className="flex flex-col gap-2 rounded-lg border border-black/5 bg-white p-5 shadow-[0px_31px_78.9px_-22px_rgba(44,_153,_248,_0.17)]">
                                 <div className="flex items-center gap-2 text-blue-grey">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +180,7 @@ export default function AboutPage({ lang, dict }) {
                                     {dict.aboutSlide1Pros4Description}
                                 </div>
                             </div>
-                            <div className="relative -top-5 flex flex-col gap-2 rounded-lg border border-black/5 bg-white p-5 shadow-[0px_49px_78.9px_-22px_rgba(248,_142,_44,_0.11)]">
+                            <div className="flex flex-col gap-2 rounded-lg border border-black/5 bg-white p-5 shadow-[0px_49px_78.9px_-22px_rgba(248,_142,_44,_0.11)]">
                                 <div className="flex items-center gap-2 text-blue-grey">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -272,7 +272,7 @@ export default function AboutPage({ lang, dict }) {
                             </h1>
                             <h3>{dict.aboutSlide2H3}</h3>
                         </div>
-                        <div className="mt-2 grid grid-cols-4 gap-2.5">
+                        <div className="mt-2 grid grid-cols-4 gap-2.5 px-2">
                             <img
                                 className="rounded-3xl object-cover h-full"
                                 src="/store-1.png"

@@ -65,7 +65,7 @@ export default function ContactPage({ dict, lang }) {
     };
 
     return (
-        <main className="flex h-full flex-col items-center gap-2.5 pt-12 pb-10">
+        <main className="flex h-full flex-col items-center gap-2.5 pb-10 pt-12">
             <div className="mx-auto flex max-w-2xl flex-col items-center justify-center text-center">
                 <div className="mb-4 w-fit rounded-full bg-gray px-6 py-1.5 text-sm">
                     {dict.becomeOurPartner}
@@ -146,7 +146,7 @@ export default function ContactPage({ dict, lang }) {
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit">
+                        <Button type="submit" className="border-secondary">
                             {isLoading ? (
                                 <Spinner height={20} width={20} color="black" />
                             ) : (

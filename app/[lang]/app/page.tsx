@@ -142,7 +142,7 @@ export default async function App({ params: { lang } }) {
                     </div>
                 </div>
                 <div className="flex w-full items-center justify-center">
-                    <img className="w-80" src="/phone.png" alt="" />
+                    <img className="h-full w-auto" src="/phone.png" alt="" />
                 </div>
                 <div className=" w-full">
                     <div className="mb-2 flex items-center gap-2">

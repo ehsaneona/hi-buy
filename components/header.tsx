@@ -19,6 +19,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Icons } from '@/components/ui/icons';
 import { usePathname, useRouter } from 'next/navigation';
 import { useGlobalContext } from '@/contexts/store';
+import { StopFrames } from '@/app/[lang]/components/constant/StopFrames';
 
 const ListItem = React.forwardRef<
     React.ElementRef<'a'>,
@@ -153,7 +154,7 @@ export function Header({ lang, dict }) {
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/about') ||
                                         (frameIndex >= 0 &&
-                                            frameIndex < 165 &&
+                                            frameIndex < StopFrames[0] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -166,8 +167,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/products') ||
-                                        (frameIndex > 280 &&
-                                            frameIndex < 370 &&
+                                        (frameIndex > StopFrames[1] - 100 &&
+                                            frameIndex < StopFrames[1] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -180,8 +181,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/app') ||
-                                        (frameIndex > 426 &&
-                                            frameIndex < 533 &&
+                                        (frameIndex > StopFrames[2] - 100 &&
+                                            frameIndex < StopFrames[2] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -194,8 +195,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/partners') ||
-                                        (frameIndex > 590 &&
-                                            frameIndex < 650 &&
+                                        (frameIndex > StopFrames[3] - 100 &&
+                                            frameIndex < StopFrames[3] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -208,8 +209,8 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/contact') ||
-                                        (frameIndex > 775 &&
-                                            frameIndex < 825 &&
+                                        (frameIndex > StopFrames[4] - 100 &&
+                                            frameIndex < StopFrames[4] &&
                                             (path === '/en' || path === '/')),
                                 })}
                             >
@@ -221,12 +222,12 @@ export function Header({ lang, dict }) {
                                 className={cn({
                                     'relative text-black after:absolute after:-bottom-2.5 after:left-1/2 after:inline-block after:h-0.5 after:w-3 after:-translate-x-1/2 after:rounded-full after:bg-primary':
                                         path.includes('/locations') ||
-                                        (frameIndex > 870 &&
+                                        (frameIndex > StopFrames[4] &&
                                             (path === '/en' || path === '/')),
                                 })}
                                 href={`${getLinksLang(lang)}/`}
                                 onClick={() => {
-                                    setManuallyFrameIndex(899);
+                                    setManuallyFrameIndex(StopFrames[4]);
                                 }}
                             >
                                 {dict.headerLinks6}
@@ -241,7 +242,7 @@ export function Header({ lang, dict }) {
                     >
                         {lang === 'ar' ? 'EN' : 'العربیه'}
                     </Link>
-                    <button className="rounded-full border border-black/10 px-10 py-3 text-sm font-bold hidden lg:block">
+                    <button className="hidden rounded-full border border-black/10 px-10 py-3 text-sm font-bold lg:block">
                         {dict.careers}
                     </button>
                 </div>
